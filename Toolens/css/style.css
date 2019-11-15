@@ -1,0 +1,25 @@
+*{
+    font-style: Arial;
+    /* font-size: 12pt;} */
+
+.header-top-right li{
+    color: #fdfefe;
+}
+.header-bottom{
+    color: #778281;
+}
+
+.main-container-first-content h2{
+    color: #e24b4a;
+}
+.main-container-first-content p{
+    color: #898e8e;
+}
+.main-container-first-content h2{
+/* font-size: 13.5pt; */
+}
+
+.main-container-third-top h2 {
+/* font-size: 18;  */
+color: #e15151;
+}
