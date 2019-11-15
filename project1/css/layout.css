@@ -1,0 +1,57 @@
+.red{
+    background: red;
+    height: 200px;
+    width: 200px;
+    float: left;
+    
+}
+/* .box{
+    
+    height: 500px;
+    background: green;
+} */
+
+
+.green{
+    background: green;
+    height: 200px;
+    width: 200px;
+    float: left;
+    
+}
+.blue{
+    background: blue;
+    height: 200px;
+    width: 200px;
+    float: left;
+    
+}
+.yellow{
+    background: yellow;
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+.inactive{
+    width: auto;
+    color: grey;
+}
+ul{
+    float: right;
+    
+}
+ul li{
+    list-style-type: none;
+    padding-left: 3px;
+    float: left;
+    display: block;
+    
+}
+.active{
+    width: auto;
+    color: black;
+}
+
+a{
+    padding: 3px;
+}
