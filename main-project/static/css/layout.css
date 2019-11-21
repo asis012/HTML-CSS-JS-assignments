@@ -1,0 +1,1253 @@
+.layout1{
+   
+    background-color: #efefef;
+}
+
+
+.header1{
+height: 102px;
+
+
+}
+
+.logo{
+float: left;
+margin-left: 63px;
+margin-top: 57px;
+}
+
+.image2{
+margin-left: 138px;
+}
+
+.nav1{
+float: right;
+margin-top: 62px;
+margin-right: 68px;
+
+}
+
+
+
+
+.nav1 li{
+    float: left;
+    list-style: none;
+    margin-left: 7px;
+    
+}
+.nav1 li:nth-child(2){
+    margin-left: 74px;
+}
+
+.nav1 li:nth-child(5){
+    margin-left: 60px;
+}
+
+.container1{
+    margin-top: 53px;
+    margin-left: auto;
+    padding-bottom: 20px;
+    width: 100%;
+    
+  
+    position: relative;
+   
+}
+.container1 .content{
+    margin-left: 456px;
+    
+    height: 510px;
+    width: 770px;
+    border: 5px solid #fac012;
+}
+.content .products{
+    width: 210px;
+    height: 25px;
+    float: left;
+    margin-top: 60px;
+   
+   
+   
+
+}
+.content .details{
+    width: 168px;
+    height: 54px;
+    /* background-color: green; */
+    float: right;
+    margin-top: 30px;
+    margin-right: 25px;
+
+    position: relative;
+    
+}
+.content .more{
+    width: 156px;
+    height: 44px;
+    background-color: black;
+    
+}
+.content .more span{
+    color: white;
+    line-height:44px;
+    text-align: center;
+}
+.content .moreicon{
+    width: 32px;
+    height: 32px;
+    float: right;
+    background-color: #fac012;
+    position: absolute;
+    bottom: 0px;
+    left: 139px;
+}
+
+.content .moreicon img{
+    margin-left: auto;
+    width: 12px;
+    margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+}
+
+.line1{
+    border: 1px solid black;
+    margin-top: 106px;
+    width: 709px;
+    margin-left: 42px;
+}
+
+.imageholder1{
+    position: absolute;
+    background-image: url('images/holder.png');
+    left: 427px;
+    top: 246px;
+}
+.imageholder1 .arrow1{
+   margin-left: 20px;
+   width: 14px;
+   position: absolute;
+   left: 0px;
+   top: 11px;
+   
+}
+
+
+.imageholder2{
+    position: absolute;
+    left:   1200px;
+    top: 246px;
+}
+.imageholder2 .arrow2{
+    margin-left: 20px;
+    position: absolute;
+    width: 14px;
+    left: 11px;
+    top: 11px;
+   
+ }
+.container1 .col-3-l{
+     margin-top: 82px;
+     margin-left: 42px;
+ }
+ .col-3-l .col1-left{
+     float: left;
+     
+ }
+ .col1-left{
+     margin-right: 55px;
+ }
+.col1-left img{
+    float: left;
+}
+.col1-left .text{
+    float: left;
+}
+
+ .col-3-l .col-main{
+     float: left;
+     
+ }
+
+ .col-3-l .col-main .col2-left{
+    float: left;
+    margin-right: 45px;
+ }
+
+ .col2-left img{
+    float: left;
+}
+.col2-left .text{
+    float: left;
+}
+.col-3-l .col-main .col3-right{
+    float: right;
+ }
+ .col3-right img{
+    float: left;
+}
+.col3-right .text{
+    float: left;
+}
+
+.layout2{
+    height: 1130px;
+    background-color: white;
+}
+.header2{
+    height: 98px;
+    background-color: black;
+}
+.header2 ul{
+    width: 1140px;
+    
+    margin: 0 auto;
+    line-height: 98px;
+}
+.header2 ul li {
+    color: white;
+    list-style: none;
+    display: inline;
+    margin-left: 49px;
+}
+
+
+.layout2 .container2{
+    width: 1140px;
+    height: 900px;
+    margin: 0 auto;
+    margin-top: 86px;
+    border: 1px solid white;
+    position: relative;
+}
+.container2 .col-3-l {
+    float: left;
+    
+}
+.container2 .col-3-l .left{
+    
+    margin-right: 10px;
+    display: inline;
+    position: relative;
+}
+.container2 .col-3-l .left span{
+    position: absolute;
+    top: 34px;
+    left: 25px;
+}
+.container2 .col-3-main{
+   
+    display: inline;
+}
+.container2 .col-3-main .left{
+    margin-right: 20px;
+    float: left;
+    position: relative;
+}
+
+.container2 .col-3-main .left span{
+    
+    position: absolute;
+    top: 34px;
+    left: 25px;
+    
+}
+.container2 .col-3-main .right{
+    width: 318px;
+    float: right;
+    margin-right: 60px;
+    position: relative;
+
+}
+.container2 .col-3-main .right span{
+    
+    position: absolute;
+    top: 34px;
+    left: 25px;
+    
+}
+
+
+.container2  .details{
+    width: 168px;
+    height: 54px;
+   
+  
+    position: absolute;
+    left: 110px;
+    bottom: 130px;
+    
+    position: relative;
+    
+}
+.container2  .more{
+    width: 156px;
+    height: 44px;
+    background-color: black;
+    
+}
+.container2  .details .more span{
+    color: white;
+    line-height: 44px;
+    text-align: center;
+    position: absolute;
+    top: 2px;
+    left: 30px;
+}
+
+.container2  .moreicon{
+    width: 32px;
+    height: 32px;
+    float: right;
+    background-color: #fac012;
+    position: absolute;
+    bottom: 0px;
+    left: 139px;
+}
+
+.container2  .moreicon img{
+    margin-left: auto;
+    width: 12px;
+    margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+}
+
+.layout2 .container2 .imageholder1{
+    position: absolute;
+    background-image: url('images/holder.png');
+    left: 479px;
+    top: 257px;
+}
+.layout2 .container2 .imageholder1 .arrow1{
+   margin-left: 20px;
+   width: 14px;
+   position: absolute;
+   left: 0px;
+   top: 11px;
+
+   
+}
+
+.container2 .col-3-l figure{
+    
+    display: inline;
+    left: 68px;
+    top: 2px;
+    position: absolute;
+}
+.container2 .col-3-l figure:hover {
+    display: none;
+}
+.layout2 .container2 .imageholder2{
+    position: absolute;
+    left:   565px;
+    top: 257px;
+}
+.container2 .col-3-l .col-3-main figure{
+    
+    display: inline;
+    left: 66px;
+    position: absolute;
+}
+.container2 .col-3-l .col-3-main figure:hover
+{
+display: none;
+}
+.container2 .col-3-l .col-3-main .right figure{
+    
+    display: inline;
+    top: 0px;
+    left: 66px;
+    position: absolute;
+}
+.container2 .col-3-l .col-3-main .right figure:hover{
+    display: none;
+}
+.layout2 .container2 .imageholder2 .arrow2{
+    margin-left: 20px;
+    position: absolute;
+    width: 14px;
+    left: 11px;
+    top: 11px;
+   
+ }
+
+ .layout2text{
+     margin: 0 auto;
+     text-align: center;
+     margin-top: 400px;
+     
+    
+
+ }
+.layout2 .col-4{
+    height: 345px;
+    width: 1138px;
+    background-color: white;
+    margin-top: 62px;
+    
+}
+ .col-4 .col1{
+    float: left;
+    height: 345px;
+    width: 233.6px;
+    position: relative;
+    margin-left: 5px;
+    border: 13px solid #ededed;
+    background: white;
+ }
+
+ .col-4 .col1 .promo{
+     width: 58px;
+     height: 27px;
+   
+     
+    background: black;
+     
+     text-align: center;
+     line-height: 27px;
+     font-size: 12px;
+     position: absolute;
+     left: 14px;
+     top: 14px;
+    
+ }
+ .col-4 .col1 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .col1.devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col1 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col1 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col1  .cart2{
+    width: 233.6px;
+    height: 54px;
+    background-color: #fac012;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+.col-4 .col1{
+    float: left;
+    height: 345px;
+    width: 233.6px;
+    position: relative;
+    
+    background: white;
+ }
+
+ .col-4 .col1 .promo{
+     width: 58px;
+     height: 27px;
+   
+     
+    background-color: black;
+     
+     text-align: center;
+     line-height: 27px;
+     font-size: 12px;
+     position: absolute;
+     left: 14px;
+     top: 14px;
+    
+ }
+ .col-4 .col1 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col1 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col1 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col1  .cart2{
+    width: 223.6px;
+    height: 54px;
+    background-color: #fac012;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+
+ .col-4 .col2{
+    float: left;
+    height: 345px;
+    width: 233.6px;
+    position: relative;
+    border: 13px solid #ededed;
+    background: white;
+ }
+
+ .col-4 .col2 .promo{
+     width: 58px;
+     height: 27px;
+   
+     
+    background: black;
+     
+     text-align: center;
+     line-height: 27px;
+     font-size: 12px;
+     position: absolute;
+     left: 14px;
+     top: 14px;
+    
+ }
+ .col-4 .col2 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .col2 .devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col2 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col2 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col2  .cart2{
+    width: 223.6px;
+    height: 54px;
+    background-color: #fac012;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+
+
+ .col-4 .col3{
+    float: left;
+    height: 345px;
+    width: 223.6px;
+    position: relative;
+    
+    background: white;
+ }
+
+ .col-4 .col3 .promo{
+    width: 58px;
+    height: 27px;
+  
+    
+ 
+    background-color: #fac012;
+    text-align: center;
+    line-height: 27px;
+    font-size: 12px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+ }
+ .col-4 .col3 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .col3 .devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col3 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col3 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col3  .cart2{
+    width: 233.6px;
+    height: 54px;
+    background-color: #fac012;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+.col-4 .col3{
+    float: left;
+    height: 345px;
+    width: 233.6px;
+    position: relative;
+    border: 13px solid #ededed;
+    background: white;
+ }
+
+ .col-4 .col3 .promo{
+     width: 58px;
+     height: 27px;
+   
+     
+    background: #fac012;
+     
+     text-align: center;
+     line-height: 27px;
+     font-size: 12px;
+     position: absolute;
+     left: 14px;
+     top: 14px;
+    
+ }
+ .col-4 .col3 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .col3 .devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col3 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col3 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col3  .cart2{
+    width: 223.6px;
+    height: 54px;
+    background-color: #fac012;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+ .cart2 figure{
+     margin-left: 30px;
+ }
+ .col-4 .col4{
+    float: left;
+    height: 345px;
+    width: 233.6px;
+    position: relative;
+    border: 13px solid #ededed;
+    background: white;
+ }
+
+ .col-4 .col4 .promo{
+     width: 58px;
+     height: 27px;
+   
+     
+    background: black;
+     
+     text-align: center;
+     line-height: 27px;
+     font-size: 12px;
+     position: absolute;
+     left: 14px;
+     top: 14px;
+    
+ }
+ .col-4 .col4 .promo span{
+     color: white;
+     position: absolute;
+     left: 8px;
+     top: 1px;
+ }
+
+ .col4 .devon{
+    position: absolute;
+    left: 50px;
+    top: 203px;
+    font-size: 15px;
+ }
+.col4 p{
+    position: absolute;
+    left: 25px;
+    top: 225px;
+    font-size: 12px;
+    text-align: center;
+ }
+ .col4 span{
+    position: absolute;
+    left: 87px;
+    top: 267px;
+ }
+ .col-4 .col4  .cart2{
+    width: 223.6px;
+    height: 54px;
+    background-color: #fac012;
+    ;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+ }
+ figure:hover{
+display: none;
+
+}
+figure{
+    margin-left: -66.8px;
+    display: inline;
+}
+ .layout3{
+     background-color: #28231d;
+     
+    border: 1px solid black;
+     
+ }
+ .layout3 .content3{
+    width: 508px;
+    height: 515px;
+   margin-left: 703px;
+    margin-top: 110px;
+   
+ }
+
+
+.content3 span{
+    padding: 15px;
+    
+    display: block;
+    color: white;
+   
+}
+ .layout3box1{
+     width:500px;
+     height:50px;
+     color: yellow;
+     border: 1px solid white;
+     margin-bottom: 14px;
+    
+ }
+ .layout3box2{
+    width:502px;
+    height:52px;
+    
+   background-color: #fac012;
+
+}
+.layout3box3{
+    width:510px;
+    height:50px;
+    color: yellow;
+    border: 1px solid white;
+    margin-top: 28px;
+   
+   
+}
+.layout4{
+    
+    height: 604px;
+    background-color: white;
+    
+}
+.layout4 .content h4{
+    text-align: center;
+    margin-top: 102px;
+}
+.layout4 .content figure{
+    margin-left: 812px;
+    
+}
+.layout4post .col3-l{
+    height: 335px;
+    width: 992.5px;
+    margin: 50px auto;
+    
+    color: black;
+}
+
+.layout4post .col3-l .left{
+    
+    float: left;
+    width: 310px;
+    height: 320px;
+   
+    margin-right: 10px;
+}
+.layout4post .layout4box{
+    width: 310px;
+    height: 196px;
+    background-color: #f6f6f6;
+}
+
+.layout4post  .details4 .layout4col1{
+    margin-top: 19px;
+    width: 50px;
+    height: 61px;
+    border: 1px solid #dedede;
+    float: left;
+}
+.layout4post  .details4 .layout4col1 .price{
+    margin:10px;
+}
+.layout4post  .details4 .layout4col2{
+    margin-top: 19px;
+    margin-left: 8px;
+    width: 248px;
+    height: 91px;
+    
+    float: left;
+}
+.layout4post  .details4 .layout4col2 span{
+    color: #fac528;
+}
+.layout4post .col3-l .right{
+
+    
+    float: left;
+    width: 310px;
+    height: 320px;
+    
+}
+
+.layout5{
+    height: 400px;
+    background-color: #f6f6f6;
+}
+.layout5 .background5
+{
+    width: 1000px;
+    height: 400px;
+    float: right;
+    background-image: url('../images/layou5holder.png');
+}
+
+.layout5 .background5 p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.layout5 .background5 .content5{
+    margin-top: 90px;
+    margin-left: 146px;
+    width: 450px;
+
+
+}
+
+.layout5 form input{
+    padding: 12px;
+    background-color: #323232;
+}
+
+.content5 .details{
+    width: 168px;
+   
+    
+   
+    margin-top: 30px;
+    
+
+    position: relative;
+    
+}
+.content5 .more{
+    width: 156px;
+    height: 44px;
+    background-color: black;
+    
+}
+.content5 .more span{
+    color: white;
+    line-height:44px;
+    padding: 20px;
+   
+}
+.content5 .moreicon{
+    width: 32px;
+    height: 32px;
+    float: right;
+   background-color: #fac012;
+   
+    position: absolute;
+    bottom: 0px;
+    left: 139px;
+}
+
+.content5 .moreicon img{
+    
+    width: 12px;
+   padding: 7px;
+  
+  
+  display: block;
+}
+
+
+
+.layout6{
+
+    height: 707px;
+    background-color: white;
+    
+} 
+.layout6 .content6{
+    padding-top: 60px;
+    width: 1039.5px;
+    margin: 0 auto;
+    height: 707px;
+   
+    padding-left: 30px;
+}  
+
+.content6 h3{
+    text-align: center;
+    
+}
+.content6 figure{
+    margin-left: 480px;
+    margin-bottom: 20px;
+}
+.content6 ul{
+    margin-left: 250px;
+}
+.content6 li{
+    line-height: 38px;
+    text-align: center;
+    width: 110px;
+    height: 38px;
+    border: 2px solid #d5d5d5;
+
+    margin-left: 6px;
+    list-style: none;
+    display: inline-block;
+}
+.column6{
+    position: relative;
+    margin-top: 18px;
+    float: left;
+}
+
+.column6 .col1{ 
+    position: absolute;
+    width: 318px;
+    height: 233px;
+   top: 0px;
+   bottom: 0px;
+    background-color: #f6f6f6;
+    
+    
+    
+}
+
+.collection{
+    float: left;
+    position: relative;
+    margin: 10px;
+}
+.column6 .col1background{
+    
+    width: 318px;
+    height: 233px;
+    
+  
+   
+    background-color: #fac528;
+   
+    
+    
+}
+
+.collectiondetails{
+    padding-top: 60px;
+    text-align: center;
+    
+}
+
+
+
+.column6 .col1:hover {
+    display: none;
+}
+
+.layout7{
+   
+    background-color: #f7f7f7;
+}
+
+.layout7 .content7{
+    width: 900px;
+padding-top: 40px;
+    
+    padding-bottom: 20px;
+    margin: 0 auto;
+    
+    
+}
+.layout7 .content7 .col2-l{
+    margin-top: 30px;
+}
+.layout7 .content7 .col2-l .left{
+    float: left;
+    width: 220px;
+    
+    
+}
+
+.layout7 .content7 .col2-l .left span{
+display: block;
+}
+
+
+.layout7 .content7 .col2-l .left h3{
+    margin-bottom: 9px;
+}
+
+.info{
+    padding-bottom: 20px;
+}
+.layout7 form input{
+    margin-top: 17px;
+    width: 620px;
+   padding: 15px;
+    display: block;
+}
+.big{
+    width: 620px;
+    height: 180px;
+}
+
+.layout7 .content7 .col2-l .right .details{
+    width: 168px;
+    height: 54px;
+    
+   margin-left: 223px;
+    margin-top: 30px;
+    
+
+    position: relative;
+    
+}
+.layout7 .content7 .col2-l .right .more{
+    width: 156px;
+    height: 44px;
+    background-color: black;
+    
+}
+.layout7 .content7 .col2-l .right .more span{
+    color: white;
+    line-height:44px;
+    text-align: center;
+    padding: 20px;
+}
+.layout7 .content7 .col2-l .right .moreicon{
+    width: 32px;
+    height: 32px;
+    float: right;
+    background-color: #fac012;
+    position: absolute;
+    bottom: 0px;
+    left: 139px;
+}
+
+.layout7 .content7 .col2-l .right .moreicon img{
+    
+width: 12px;
+   
+  
+  padding: 7px;
+  display: block;
+}
+
+
+.layout8{
+height: 700px;
+background-color: #1c1105;
+}
+
+.layout8 .content8{
+    width: 1140px;
+    margin: 0 auto;
+    padding-top: 30px;
+  
+    
+}
+
+.content8 .layout8col1{
+    width: 250px;
+    height: 463px;
+    float: left;
+    color: green;
+   
+}
+.content8 .col1 span{
+    width: 30px;
+    margin-top: 0px;
+}
+la
+.layout8col2{
+    float: left;
+}
+.layout8col3{
+    float: left;
+}
+.layout8col2{
+    float: left;
+}
+.icon1 figure {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.icon1{
+    width: 104px;
+    height: 50px;
+
+
+}
+.cart2{
+    padding: 5px;
+    margin-top: 4px;
+    top: 288px;
+    
+}
+.cart2 figure{
+    display: inline-block;
+    
+}
+.cart2 h4{
+    display: inline;
+    margin-left: 15px;
+   
+}
+.promo span{
+    margin-bottom: 15px;
+}
+.icontext{
+    float: left;
+}
+
+.layout8 .box{
+width: 80px;
+height: 78px;
+background-color: #44301a;
+margin-right: 10px;
+
+}
+.layout8 .box{
+    float: left;
+}
+.info{
+    float: left;
+}
+.info  h4{
+
+    text-decoration: line-through;
+    float: left;
+}
+.layout8col2 p{
+    float: left;
+}
+
+.info .price{
+    display: block;
+}
+
+
+
+.product1{
+    height: 94px;
+    display: block;
+    
+}
+
+.icons{
+    width: 207px;
+   margin-left: 75px;
+   margin-top: 30px;
+}
+.icons .left{
+    float: left;
+    width: 45px;
+    
+}
+.icons .right{
+    float: right;
+    width: 50px;
+    margin-left: 10px;
+}
+.icon1 figure{
+    float: left;
+    
+}
+.layout8col1 .readmore{
+    
+    margin-left:5px;
+    margin-top: 19px;
+}
+.layout8col1 .readmore span{
+    margin-top: 35px;
+}
+.icontext{
+   
+    margin-left: -40px;
+    display: inline;
+  
+}
+.icontext h6:hover{
+    color: white;
+
+}
+
+.layout8col1 p{
+    margin-bottom: 15px;
+}
