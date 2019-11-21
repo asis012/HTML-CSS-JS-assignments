@@ -230,7 +230,7 @@ margin-right: 68px;
     
     margin-right: 10px;
     display: inline;
-    position: relative;
+    position: absolute;
 }
 .container2 .col-3-l .left span{
     position: absolute;
@@ -238,13 +238,14 @@ margin-right: 68px;
     left: 25px;
 }
 .container2 .col-3-main{
-   
-    display: inline;
+   float: left;
+    
 }
 .container2 .col-3-main .left{
-    margin-right: 20px;
+    margin-right: 0px;
     float: left;
-    position: relative;
+    position: absolute;
+    margin-left: 412px;
 }
 
 .container2 .col-3-main .left span{
@@ -257,7 +258,7 @@ margin-right: 68px;
 .container2 .col-3-main .right{
     width: 318px;
     float: right;
-    margin-right: 60px;
+    
     position: relative;
 
 }
@@ -342,6 +343,7 @@ margin-right: 68px;
 .container2 .col-3-l figure:hover {
     display: none;
 }
+
 .layout2 .container2 .imageholder2{
     position: absolute;
     left:   565px;
@@ -1250,4 +1252,10 @@ margin-right: 10px;
 
 .layout8col1 p{
     margin-bottom: 15px;
+}
+
+
+.col-3-main{
+    position: absolute;
+ 
 }
