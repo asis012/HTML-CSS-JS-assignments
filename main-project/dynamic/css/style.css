@@ -1,0 +1,96 @@
+.header2 ul li:hover{
+    color: #ce9d0f;
+}
+
+.container2 .col-3-l .img:hover{
+    display: none;
+   
+}
+.layout4 .content h4{
+    color: black;
+    
+}
+
+.layout2text h3{
+color: black;
+}
+
+ .devon{
+    color:black;
+}
+
+.col-4 p{
+    color: #b0b0b0;
+}
+
+.col-4 span{
+    color: #fac422;
+}
+
+.cart2{
+    color: white;
+}
+.content3  {
+    color: white;
+}
+
+.content3 p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 22px;
+}
+
+.content3 span{
+    color: white;
+}
+.layout3box2{
+    color: white;
+}
+
+.layout5 {
+    color: white;
+    
+}
+
+.layout5 p{
+    color: #d6d6d6;
+}
+
+.layout6{
+    color: black;
+}
+
+.layout7 .content7{
+    color: black;
+}
+.layout7 .content7 .col2-l h2{
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+}
+.layout7 .content7 .col2-l h3{
+    font-size: 15px;
+    
+}
+.layout7 .content7 .col2-l span{
+    font-size: 13px;
+}
+
+hr .layout8hr{
+    margin: 10px;
+    color: #281909;
+}
+
+
+.layout8col3{
+    margin-left: 75px;
+    margin-right: 75;
+}
+.layout8col2{
+    margin-left: 75px;
+}
+
+.layout8col4{
+    float: right;
+    margin-right:  366px;
+}

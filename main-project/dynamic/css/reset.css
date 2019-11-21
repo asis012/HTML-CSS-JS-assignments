@@ -1,0 +1,16 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+    }
+    .wrapper{
+        width: 105em;
+        background-color: white;
+       color: red;
+       
+        
+       box-sizing: border-box;
+    }
+
+
+
