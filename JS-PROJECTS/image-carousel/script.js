@@ -29,23 +29,10 @@ function slideShow(n) {
 
 function currentSlide(n) {
   imageWrapper.style.left = '-' + (n - 1) * imageWidth + 'px';
-  switch (n) {
-    case 1:
-      dot[n - 1].style.background = 'grey';
-      dot[n].style.background = '#bbb';
-      dot[n + 1].style.background = '#bbb';
-      break;
-    case 2:
-      dot[n-2].style.background = '#bbb';
-      dot[n].style.background = '#bbb';
-      dot[n-1].style.background = 'grey';
-      break;
-    case 3:
-      dot[n-1].style.background = 'grey';
-      dot[n-2].style.background = '#bbb';
-      dot[n-3].style.background = '#bbb';
-      break;
-    default:
-      break;
-  }
+  
+
+for (i = 0; i < slides.length; i++) {
+  dot[i].style.background = '#bbb';
+}
+dot[n - 1].style.background = 'grey';
 }
