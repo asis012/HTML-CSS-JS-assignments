@@ -1,4 +1,5 @@
-function carousel(id) {
+function carousel(id,intervaltime) {
+  
   this.container = document.getElementsByClassName(
     'carousel-container' + id
   )[0];
@@ -16,6 +17,7 @@ function carousel(id) {
 
   //basic initialization 
   this.init = function() {
+
     for (i = 0; i < this.imageWrapper.childElementCount; i++) {
       this.slides[i].style.left = i * this.imageWidth + 680 + 'px';
     }
@@ -56,6 +58,7 @@ function carousel(id) {
   //add eventlistener when  arrow is clicked
   var that = this;
   this.left.addEventListener('click', function() {
+    clearInterval(this.interval);
     that.slide(-1);
   });
   this.slide = function(n) {
@@ -65,6 +68,7 @@ function carousel(id) {
   //addevent listener when indiator is clicked
   var that = this;
   this.right.addEventListener('click', function() {
+    clearInterval(this.interval);
     that.slide(+1);
   });
   this.slide = function(n) {
@@ -86,8 +90,38 @@ function carousel(id) {
     this.currentSlide(3);
   });
 
+var j =1
+ this.interval= setInterval(() => {
+    this.slideSho()
+  }, intervaltime);
+
+  this.slideSho = function() {
+    
+   j = j+1
+   
+   if(j==4){
+    j = 1
+  }
+  
+      this.imageWrapper.style.left ='-' + (j - 1) * this.imageWidth + 'px';
+      this.imageWrapper.style.transition = '1s linear';
+      this.spans = document.getElementsByTagName('span');
+      for (i = 0; i < this.imageWrapper.childElementCount; i++) {
+        document.getElementById(id + 'span' + i).style.background = '#bbb';
+      }
+      document.getElementById(
+        id + 'span' + (j - 1)
+      ).style.background = 'grey';
+  };
+
+ 
+
+
+
   //sliding images when arrow is clicked
   this.slideShow = function(n) {
+  
+    
     if (n > this.imageWrapper.childElementCount) {
       this.slideIndex = 1;
     }
@@ -103,22 +137,27 @@ function carousel(id) {
     document.getElementById(
       id + 'span' + (this.slideIndex - 1)
     ).style.background = 'grey';
+    
+    
   };
 
   //sliding images when  indicator is clicked 
   this.currentSlide = function(n) {
+
     this.spans = document.getElementsByTagName('span');
     this.imageWrapper.style.left = '-' + (n - 1) * this.imageWidth + 'px';
     for (i = 0; i < this.imageWrapper.childElementCount; i++) {
       document.getElementById(id + 'span' + i).style.background = '#bbb';
     }
     document.getElementById(id + 'span' + (n - 1)).style.background = 'grey';
+    
   };
+
 }
 //Object 1
-var object1 = new carousel(0);
+var object1 = new carousel(0,2000);
 object1.init();
 
 //object 2
-// var object2 = new carousel(1)
-// object2.init()
+var object2 = new carousel(1,3000);
+object2.init();
