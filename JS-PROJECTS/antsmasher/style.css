@@ -1,0 +1,19 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  background: rgb(247, 244, 244);
+  
+  }
+
+.app {
+  height: 600px;
+  width: 500px;
+  background: white;
+  position: relative;
+}
+
+.box {
+  
+  position: absolute;
+  
+}
