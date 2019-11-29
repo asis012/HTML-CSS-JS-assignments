@@ -5,8 +5,8 @@
     this.x = 10;
     this.y = 10;
  
-    this.width = 20;
-    this.height = 20;
+    this.width = 40;
+    this.height = 50;
     this.dx = 20;
     this.dy = 20;
     this.element = null;
@@ -22,13 +22,35 @@
       box.style.width = this.width + 'px';
       box.classList.add('box');
 
-      this.element = box;
+
+     this.element = box;
       
      
-      this.element.style.backgroundImage = "url('ant.png')";
-      //this.element.onclick = this.boxClicked.bind(this);
+      
+     
+      
+    
+    
       
       this.draw();
+      this.element.style.backgroundImage = "url('ant.png')";
+      this.element.style.backgroundSize = "cover";
+      this.element.style.backgroundRepeat = "no-repeat";
+      this.element.onclick = function(e){
+        
+        boxClicked(e.target)
+      }
+      function boxClicked(element){
+        element.style.backgroundImage = "url('splat.png')";
+        element.style.width = "60"
+        element.style.height = "50"
+        
+        
+      }
+      
+      
+     
+     
       return this;
     };
 
@@ -37,10 +59,10 @@
       this.y = y;
     };
 
-    this.boxClicked = function() {
+    // this.boxClicked = function() {
       
-      this.a.style.display = 'none';
-    };
+    //   this.box.style.display = 'none';
+    // };
 
     this.draw = function() {
       if (
@@ -51,10 +73,15 @@
       ) {
         this.element.style.left = this.x + 'px';
         this.element.style.top = this.y + 'px';
-
-        this.a = this.parentElement.appendChild(this.element);
-        this.a.onclick = this.boxClicked.bind(this);
+        this.parentElement.appendChild(this.element);
+        
+        
       }
+
+      
+      
+    
+    
     };
 
     this.move = function() {
@@ -134,7 +161,7 @@
             getRandomArbitrary(0, MAX_WIDTH),
             getRandomArbitrary(0, MAX_HEIGHT)
           );
-
+            
           if (!box.overlap(boxes)) {
             
             this.boxes = true;
@@ -146,12 +173,16 @@
       this.moveBoxes();
       setInterval(this.moveBoxes.bind(this), 25);
     };
+  
 
     this.moveBoxes = function() {
       for (var i = 0; i < this.boxCount; i++) {
         boxes[i].checkCollisions(boxes);
       }
     };
+
+
+    
   }
 
   var parentElement = document.getElementById('app');
