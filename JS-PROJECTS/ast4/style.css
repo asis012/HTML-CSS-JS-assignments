@@ -1,0 +1,23 @@
+
+*{
+    padding: 0px;
+  
+    background: black
+    
+    }
+  
+  #app {
+    
+    height: 9600px;
+    width: 540px;
+ 
+  }
+img{
+  position: absolute;
+  top: 0;
+}
+  .roadWrapper{
+    top: 0 ;
+    position: absolute;
+  }
+  
