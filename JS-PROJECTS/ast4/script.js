@@ -15,7 +15,7 @@
         this.bottomPosition = bottom;
         this.laneWidth = 200;
         this.leftLanePosition = 45;
-        this.rightLanePosition = 445;
+        this.rightLanePosition = 425;
      
         this.init = function(){
             this.create();
@@ -55,13 +55,13 @@
                 function frame(){
     
                     if(this.leftPosition >= nextLeft){
-                        this.leftPosition = nextLeft;
-                        this.element.style.left = this.leftPosition + 'px';
+                        this.leftPosition = nextLeft ;
+                        this.element.style.left = this.leftPosition -20 + 'px';
                         keyPressed = false;
                         clearInterval(id);
                     }
                     else{
-                        this.leftPosition += 450; 
+                        this.leftPosition += 400; 
                         this.element.style.left = this.leftPosition + 'px';
                     }
                 }
@@ -104,7 +104,7 @@
         this.wrapperTop = -600; 
         this.obtacles = 1;
         this.bugs = [];
-        this.speed = 5;
+        this.speed = 10;
         this.carsPassedScore = 0;
 
         
@@ -219,7 +219,7 @@
             }
             //for obtacles
             else{
-                var obstacle = new Car(this.container, 'url(car.png)', leftPosition, 900);
+                var obstacle = new Car(this.container, 'url(obstacle.png)', leftPosition, 900);
                 obstacle.init();
                 this.bugs.push(obstacle);
             }
