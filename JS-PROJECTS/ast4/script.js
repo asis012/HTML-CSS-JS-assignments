@@ -2,6 +2,8 @@
 
     var keyPressed = false;
     var gamePaused = true;
+    var hightScore = 0
+
     
     start(false);
     
@@ -9,10 +11,13 @@
         this.parentElement = parentElement;
         
         this.backgroundUrl = backgroundUrl;
-        this.WIDTH = 70;
+        this.WIDTH = 200;
         this.HEIGHT = 90;
         this.leftPosition = left;
         this.bottomPosition = bottom;
+        this.bullets = [];
+        this.isFiring = false;
+        this.bulletLimit = 1;
         this.laneWidth = 200;
         this.leftLanePosition = 45;
         this.rightLanePosition = 425;
@@ -41,7 +46,10 @@
         this.draw = function(){
             this.element.style.bottom = this.bottomPosition + 'px';
         }
-    
+        
+        this.destroyBugs = function(){
+        this.parentElement.removeChild(this.element);
+    }
         //move right        
         this.moveRight = function(){
             if (this.leftPosition < this.rightLanePosition){
@@ -56,12 +64,13 @@
     
                     if(this.leftPosition >= nextLeft){
                         this.leftPosition = nextLeft ;
-                        this.element.style.left = this.leftPosition -20 + 'px';
+                        this.element.style.left = this.leftPosition  + 'px';
+                        
                         keyPressed = false;
                         clearInterval(id);
                     }
                     else{
-                        this.leftPosition += 400; 
+                        this.leftPosition += 50; 
                         this.element.style.left = this.leftPosition + 'px';
                     }
                 }
@@ -75,45 +84,73 @@
                 keyPressed = true;
                 var id = setInterval(frame.bind(this), 10);
                 var nextLeft = this.leftPosition - this.laneWidth;
-                console.log(nextLeft)
+            
                 function frame(){
                     if(this.leftPosition <= nextLeft){
+                        
                         this.leftPosition = nextLeft;
                         this.element.style.left = this.leftPosition + 'px';
                         keyPressed = false;
                         clearInterval(id);
                     }
                     else{
-                        this.leftPosition -= 450; 
+                        
+                        this.leftPosition -= 50; 
                         this.element.style.left = this.leftPosition + 'px';
                     }
-                }
+                }                   // console.log()
             }
         }
     
             
-        this.destroyBugs = function(){
-            this.parentElement.removeChild(this.element);
+
+
+        this.fire = function(){
+      
+        this.bullet = document.createElement('id')
+        this.bullet.style.width = '10px'
+        this.bullet.style.height = '10px'
+        this.bullet.style.borderRadius = '50%'
+        this.bullet.style.backgroundColor = 'yellow'
+        this.bullet.style.left = this.leftPosition + 30 + 'px'
+        this.bullet.style.bottom = this.bottomPosition + 'px';
+        this.bullet.style.position = 'absolute';
+        this.parentElement.appendChild(this.bullet)
+          //  console.log("ok")
+        this.bullets.push(this.bullet)
+
         }
       
        
     }
     
     
-    function Game(){
+    function Game(mLeft){
         this.wrapperTop = -600; 
         this.obtacles = 1;
         this.bugs = [];
         this.speed = 10;
-        this.carsPassedScore = 0;
+        carsPassedScore = 0;
+        this.carsDestroyedElement;
+        this.carsDestroyedScore = 0;
+        this.totalScoreElement;
+        this.totalScore = 0;
+        this.bulletCounter = 1;
+        this.bulletCounterLimit = 20;
+        this.ammoLive = true;
+        this.ammoLiveCounter = 1;
+        this.ammoLiveLimit = 1000;
+        this.ammunitionElement;
 
         
         this.init = function(){
             this.container = document.getElementById('app')
             this.container.style.height = '660px'
             this.container.style.overflow = 'hidden'
+            this.container.style.marginLeft = mLeft
             this.containerWidth = this.containeroffsetWidth;
             this.containerHeight = this.containeroffset;
+            
             this.roadWrapper();
             this.car(true, 245, 50);
             document.onkeydown = this.move.bind(this);
@@ -123,17 +160,39 @@
     
         this.moveBackground = function(){
             if(this.wrapperTop < 0){
-                this.wrapperTop += this.speed;
+                this.wrapperTop += 20;
+                
             }
             else{
                 this.wrapperTop = -600;
+                
             }
             this.wrapper.style.top = this.wrapperTop + 'px';
+            
+            this.bulletCounter = (this.bulletCounter + 1) % this.bulletCounterLimit;
+
+
+            if(this.player.isFiring){
+                if(this.player.bullets.length < this.player.bulletLimit && this.bulletCounter == 0){
+                    this.player.fire();
+                }
+    
+                for(var x = 0; x < this.player.bullets.length; x++){
+                    this.player.bullets[x].style.bottom = parseInt(this.player.bullets[x].style.bottom) + 30 + 'px';            
+                }
+                
+                if(this.player.bullets.length > 0){
+                    if(parseInt(this.player.bullets[this.player.bullets.length - 1].style.bottom) > 1100){
+                        this.player.isFiring = false;
+                        this.player.bullets = [];
+                    }
+                }
+            }
     
     
             //check collision
             for(var i = 0; i < this.bugs.length; i++){
-    
+                var killed = false;
                 
                 this.bugs[i].bottomPosition -= this.speed;
                 this.bugs[i].draw(); 
@@ -152,11 +211,41 @@
     
                      start(true);
                  }
+
+                 if(!killed){
+                    if(this.bugs[i].bottomPosition < -this.bugs[i].HEIGHT){
+                       
+                       this.bugs[i].destroyBugs();
+                       this.bugs.splice(i, 1);
+                       carsPassedScore += 1
+                       
+                   }
+               }
+               // console.log(this.player)
+                 for(var y = 0; y < this.player.bullets.length; y++){
+                    if (parseInt(this.player.bullets[y].style.left) < this.bugs[i].leftPosition + this.bugs[i].WIDTH &&
+                        parseInt(this.player.bullets[y].style.left)  + 10 > this.bugs[i].leftPosition &&
+                        parseInt(this.player.bullets[y].style.bottom)  < this.bugs[i].bottomPosition + this.bugs[i].HEIGHT &&
+                        parseInt(this.player.bullets[y].style.bottom)  + 10 > this.bugs[i].bottomPosition) {
+                            console.log("collide")
+                            this.bugs[i].destroyBugs();
+                           // this.parentElement.removeChild(this.player.bullets[y]);
+                            //this.player.bullets[y].destroyBugs()
+                            //console.log(this.bugs)
+                            this.bugs.splice(y, 1);
+                            //console.log(this.bugs)
+                            // UPDATE SCORE
+                            carsPassedScore += 1
+                            //console.log("ok")
     
-                 if(this.bugs[i].bottomPos < -this.bugs[i].HEIGHT){
-                    this.bugs[i].destroyBugs();
-                    this.bugs.splice(i, 1);
+                            killed = true;
+    
+                            break;
+                    }
                 }
+
+                
+                
             
             }
     
@@ -166,11 +255,20 @@
             if(this.obtacles == 0){
                 var carLeft = leftLane(random());
                 this.car(false, carLeft, this.obtaclesBottom = 450);
+
+                //console.log(carLeft)
+            }
+
+            this.ammoLiveCounter = (this.ammoLiveCounter + 1) % this.ammoLiveLimit;
+
+            if(this.ammoLiveCounter == 0){
+                this.ammoLive = true;
+                
             }
     
         }
     
-        function leftLane(lane){
+        function leftLane(lane=3){
             var leftPosition;
     
             if(lane == 1){
@@ -180,7 +278,7 @@
                 leftPosition = 245;
             }
             else{
-                leftPosition = 395;
+                leftPosition = 455;
             }
             return leftPosition;
         }
@@ -202,6 +300,8 @@
 
             //adding background image
             var img = document.createElement('img');
+            img.style.background="url('road.png')"
+            img.style.background="url('road.png')"
             img.style.background="url('road.png')"
             img.style.backgroundRepeat="repeat"
             img.style.width = 540 + 'px';
@@ -241,12 +341,24 @@
                         this.player.moveRight();
                     }
                     break;
-            }
+                    case 32:
+                        //space bar
+                        if(!keyPressed && !gamePaused && this.ammoLive){
+                            this.player.isFiring = true;
+                           // console.log("true")
+                            this.ammoLive = false;
+                            //this.ammunitionElement.innerHTML = 'Charging..'
+                        }
+                        break;
+            
+                }
         }
     
     }
     
     function start(gameOver){
+       
+
     
         if(!gameOver){
             var firstScreen = document.getElementById('app');
@@ -258,17 +370,37 @@
     
             play.onclick = function(e){
                 gamePaused = false;
-                var game = new Game().init();
+              // new Game(10).init();
+               new Game(800).init()
+               //var game1 = new Game().init()
             };
         }
         else{
             var firstScreen = document.getElementById('app');
             firstScreen.innerHTML = '';
-            var over = document.createElement('div');
+            var over = document.createElement('h1');
             over.innerHTML = 'GAME OVER'
             over.style.color="white"
             over.style.textAlign = 'center';
             firstScreen.appendChild(over);
+
+            var score = document.createElement('div');
+            score.innerHTML = 'Score : ' + carsPassedScore
+            score.style.color="white"
+            score.style.textAlign = 'center';
+            firstScreen.appendChild(score);
+
+            if(hightScore < carsPassedScore){
+                hightScore = carsPassedScore
+            }
+
+            var highscore = document.createElement('div');
+            highscore.innerHTML = 'HighScore : ' + hightScore
+
+            highscore.style.color="white"
+            highscore.style.textAlign = 'center';
+            firstScreen.appendChild(highscore);
+
             var play = document.createElement('button');
             play.innerHTML = 'PLAY AGAIN'
             play.style.color="white"
@@ -278,7 +410,7 @@
     
                
     
-                var game = new Game().init();
+            var game1 = new Game().init();
             };
     
         }
