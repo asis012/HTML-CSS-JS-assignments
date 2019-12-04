@@ -1,0 +1,9 @@
+.game-container{
+   width: 600px;
+   height: 800px;
+   float: left;
+   margin-left: 100px;
+   position: relative;
+   overflow: hidden;
+   margin-top: 25px;
+}
