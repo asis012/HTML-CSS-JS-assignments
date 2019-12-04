@@ -6,4 +6,15 @@
    position: relative;
    overflow: hidden;
    margin-top: 25px;
+
 }
+
+
+
+
+@font-face {
+   font-family: "flappy";
+   src: url("04B_19__.TTF");
+
+   }
+   

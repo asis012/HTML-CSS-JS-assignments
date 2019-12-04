@@ -23,6 +23,7 @@ function Bird(container, top = 300, left = 150){
         this.bird.style.top = this.top + 'px';
         this.bird.style.width = this.WIDTH + 'px';
         this.bird.style.height = this.HEIGHT + 'px';
+        this.bird.style.zIndex = '1'
         this.bird.style.background = 'url(images/bird.png)';
 
         this.bird.style.backgroundSize = 'cover';
@@ -87,7 +88,7 @@ function Bird(container, top = 300, left = 150){
     this.dropDown = function(){
         if(!this.flying){
             this.top += this.fallSpeed;
-            this.fallSpeed += 0.3;
+            this.fallSpeed += 0.03;
           
             
                      

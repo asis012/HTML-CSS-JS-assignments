@@ -9,7 +9,7 @@ function Game(){
     this.backgroundSpeed = 1;
     
     this.baseWrapperLeft = 0;
-    this.baseSpeed = 2;
+    this.baseSpeed = 5;
     this.bird = null;
     
     this.pipeCounter = 1;
@@ -139,6 +139,7 @@ function Game(){
                 if(this.upperPipes[i].left < (this.bird.left - this.bird.WIDTH / 2) && !this.upperPipes[i].hasPassed){
                     this.upperPipes[i].hasPassed = true;
                     this.score += 1;
+                    this.Score.style.fontFamily = "flappy"
                     this.Score.innerHTML = this.score;
                 }
             }
@@ -172,6 +173,7 @@ function Game(){
 
         var score = document.createElement('div');
         score.innerHTML = this.score;
+        score.style.fontFamily = "flappy"
         score.style.position = 'absolute';
         score.style.top = '285px';
         score.style.left = '285px';
@@ -183,6 +185,7 @@ function Game(){
 
         var highScore = document.createElement('div');
         highScore.innerHTML = this.highScoreScore;
+        highScore.style.fontFamily = "flappy"
         highScore.style.position = 'absolute';
         highScore.style.top = '362px';
         highScore.style.left = '285px';
@@ -225,15 +228,15 @@ function Game(){
             this.bird.top + this.bird.HEIGHT > this.lowerPipes[i].top)) {
 
                 
-                this.gamePaused = true;
+             this.gamePaused = true;
          }
     }
 
     this.movePipes = function(i){
-        this.upperPipes[i].left -= this.baseSpeed + 3;
+        this.upperPipes[i].left -= this.baseSpeed ;
         this.upperPipes[i].draw(); 
         
-        this.lowerPipes[i].left -= this.baseSpeed + 3;
+        this.lowerPipes[i].left -= this.baseSpeed ;
         this.lowerPipes[i].draw(); 
     }
 
@@ -250,16 +253,16 @@ function Game(){
     this.addPipes = function(){
         
         this.pipeCounter = (this.pipeCounter + 1) % this.pipeCounterLimit;
-
+        console.log(this.pipeCounter)
         if(this.pipeCounter == 0){
 
             var upperPipeHeight = getPipeHeight();
             var upperPipeTop = 0;
-            var upperPipeSrc = 'url(images/pipe.png)';
+            var upperPipeSrc = 'url(images/pipe1.png)';
             var upperPipe = new Pipe(this.container, this.containerWidth, upperPipeTop, upperPipeHeight, upperPipeSrc);
             upperPipe.init();
 
-            var lowerPipeHeight = 400 - upperPipeHeight;
+            var lowerPipeHeight = 500 - upperPipeHeight;
             var lowerPipeTop = this.containerHeight - this.groundHeight - lowerPipeHeight;
             var lowerPipeSrc = 'url(images/pipe.png)';
             var lowerPipe = new Pipe(this.container, this.containerWidth, lowerPipeTop, lowerPipeHeight, lowerPipeSrc);
@@ -272,8 +275,8 @@ function Game(){
     }
 
     function getPipeHeight(){
-        var minHeight = 80;
-        var maxHeight = 320;
+        var minHeight = 100;
+        var maxHeight = 300;
         var height = Math.round(Math.random() * (maxHeight - minHeight) + minHeight);
 
         return height;
@@ -298,7 +301,7 @@ function Game(){
             this.baseWrapperLeft = 0;
         }
         else{
-            this.baseWrapperLeft -= this.baseSpeed;
+            this.baseWrapperLeft -= this.baseSpeed ;
         }
 
         this.baseWrapper.style.left = this.baseWrapperLeft + 'px'; 
@@ -315,6 +318,7 @@ function Game(){
         this.Score.style.left = '235px';
         this.Score.style.zIndex = '1';
         this.Score.style.fontSize = '60px';
+        this.Score.style.fontFamily = "flappy"
         this.Score.innerHTML = this.score;
 
         this.container.appendChild(this.Score);

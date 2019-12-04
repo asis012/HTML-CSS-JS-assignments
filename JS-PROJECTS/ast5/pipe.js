@@ -4,7 +4,7 @@ function Pipe(parentElem, left, top, height , src){
     this.top = top;
     this.left = left;
     this.height = height;
-    this.width = 140;
+    this.width = 135;
     this.src = src;
     this.hasPassed = false;
 
