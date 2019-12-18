@@ -1,5 +1,13 @@
 //set value to cell to show bracktraclking and bruteforce
+var td = document.querySelectorAll('td')
+
+
+
 function setValueToCell(solvedSudoku, inputs) {
+  
+
+  
+  
   if (!inputs) {
     throw 'setValueToCell requires input box';
   }
@@ -10,9 +18,16 @@ function setValueToCell(solvedSudoku, inputs) {
       if (solvedSudoku[i][j] === 0) {
       } else {
         values = solvedSudoku[i][j];
+
+
+        //inputs[k].setRangeText("values")
+        
+        //console.log(values);
+        
+       // inputs[k].setAttribute('value','0')
         inputs[k].setAttribute('value', values);
+        //inputs[k].attr('value', values);
       }
-      //console.log(values);
       k++;
     }
   }
@@ -22,12 +37,15 @@ async function solveDepth(matrix, shouldDelay = false, inputs, ishint = false) {
   if (!inputs) {
     throw 'Input boxes are required';
   }
+  //console.log(inputs)
 
   let depth = 0;
   let delayed = 0;
-  let delayMills = 2;
+  let delayMills = 30;
   let old_time = new Date();
-
+  console.log(inputs);
+  
+  
   //functon to solve sudoku
   async function solve(matrix, inputs) {
     let i, j, k;
@@ -79,18 +97,24 @@ async function solveDepth(matrix, shouldDelay = false, inputs, ishint = false) {
     var new_time = new Date();
     var millis_passed = new_time - old_time - delayMills * delayed;
     depth = 0;
-
+    console.log((inputs.values[1] == "0"));
+    
+    if(inputs.values[1] == ''){
+      console.log('ok')
+    }
     return { solved: true, millis_passed, delayed: delayMills * delayed };
   }
   return solve(matrix, inputs);
 }
 
 //check valid number for board
+
 //here we call there function suchthat one will check for row validation, next for col validation and last one for 3*3 grid validation
 function sudokucheckCellOnBoard(arr, row, col, number) {
   if (number === 0) {
     return true;
   }
+ 
   return (
     sudokuvalidRow(arr, row, number) &&
     sudokuvalidColumn(arr, col, number) &&
