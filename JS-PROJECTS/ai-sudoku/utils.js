@@ -59,44 +59,44 @@ function validGrid(arr, row, col) {
   return true;
 }
 
-
-
-function validCheck(arraySolution){
-  for (var y = 0; y < 9; ++y) {
-      for (var x = 0; x < 9; ++x) {
-          var value = arraySolution[y][x];
-          if(arraySolution[y][x]==0){
-            return false
-          }
-          if (value) {
-              // Check the line
-              for (var x2 = 0; x2 < 9; ++x2) {
-                  if (x2 != x && arraySolution[y][x2] == value) {
-                      return false;
-                  } 
-              }
-
-              // Check the column
-              for (var y2 = 0; y2 < 9; ++y2) {
-                  if (y2 != y && arraySolution[y2][x] == value) {
-                      return false;
-                  } 
-              }
-
-              // Check the square
-              var startY = Math.floor(y/3)*3;
-              for (var y2 = startY; y2 < startY + 3; ++y2) {
-                  var startX = Math.floor(x/3)*3;
-                  for (x2 = startX; x2 < startX + 3; ++x2) {
-                      if ((x2 != x || y2 != y) && arraySolution[y2][x2] == value) {
-                          return false;
-                      }
-                  }
-              }
-          }
+function validCheck(arraySolution) {
+  for (var row = 0; row < 9; ++row) {
+    for (var col = 0; col < 9; col++) {
+      var value = arraySolution[row][col];
+      if (arraySolution[row][col] == 0) {
+        return false;
       }
-  
+      if (value) {
+        // Check the line
+        for (var col2 = 0; col2 < 9; col2++) {
+          if (col2 != col && arraySolution[row][col2] == value) {
+            return false;
+          }
+        }
 
-  return true;
-}
+        // Check the column
+        for (var row2 = 0; row2 < 9; row2++) {
+          if (row2 != row && arraySolution[row2][col] == value) {
+            return false;
+          }
+        }
+
+        // Check the square
+        var startY = Math.floor(row / 3) * 3;
+        for (var row2 = startY; row2 < startY + 3; row2++) {
+          var startX = Math.floor(col / 3) * 3;
+          for (col2 = startX; col2 < startX + 3; col2++) {
+            if (
+              (col2 != col || row2 != row) &&
+              arraySolution[row2][col2] == value
+            ) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+
+    return true;
+  }
 }

@@ -1,6 +1,6 @@
 class Sudoku {
   constructor() {
-    (async () => {
+    (async function() {
       let container = document.getElementById('app');
 
       let div = document.createElement('app');
@@ -13,60 +13,63 @@ class Sudoku {
       let board = await getRandomBoardNumbers();
 
       //this will make 9*9 grid for sudoku
-      for (var a = 0; a < 9; a++) {
+      for (var row = 0; row < 9; row++) {
         var tr = document.createElement('tr');
         table.appendChild(tr);
-        for (var b = 0; b < 9; b++) {
+        for (var col = 0; col < 9; col++) {
           var td = document.createElement('td');
           var input = document.createElement('input');
-          // if (board[a][b] === 0) {
-          //  // input.setAttribute('value', '');
-          // } else {
-          //  // input.setAttribute('value', board[a][b]);
-          // }
-          input.setAttribute('data-a', a);
-          input.setAttribute('data-b', b);
-          board[a][b] = input.value;
-          //input.addEventListener('click',"ok")
+          input.setAttribute('type', 'number');
+          input.setAttribute('min', 1);
+          input.setAttribute('class', 'input-box');
+          input.addEventListener('input', function(e) {
+            if (e.target.value > 9) {
+              e.target.value = e.target.defaultValue;
+            }
+            if (e.target.value == 0) {
+              e.target.value = '';
+            }
+          });
+          input.max = '9';
+          input.focusOut;
+
+          board[row][col] = input.value;
+
           tr.appendChild(td);
           td.appendChild(input);
+          input.setAttribute('maxLength', '10');
         }
       }
 
       let inputs = table.querySelectorAll('input');
-    //  var input = document.createElement('input');
-      //inputs.addEventListener('click',"ok")
-      //input.addEventListener('change', "haha");
-      // inputs .onchange = function() {
-        
-      //   console.log('hasha')
-      // };
-      //solve button to solve soduku
+
       var solvee = document.createElement('button');
       solvee.id = 'Solve';
       solvee.innerHTML = 'Solve';
       solvee.style.marginLeft = '40%';
-      solvee.style.width = '40px';
-      solvee.style.height = '20px';
+      solvee.style.width = '70px';
+      solvee.style.height = '30px';
       div.appendChild(solvee);
-      solvee.addEventListener('click', () => solveSudoku(inputs));
-
-      //randomsample buttion to generate random sudoku
+      solvee.onclick = function() {
+        solveSudoku(inputs);
+      };
       var randomSample = document.createElement('button');
       randomSample.id = 'radomSampleButton';
       randomSample.innerHTML = 'Random Sample';
-      randomSample.style.width = '105px';
-      randomSample.style.height = '20px';
+      randomSample.style.width = '205px';
+      randomSample.style.height = '30px';
       randomSample.setAttribute('placeholder', 'solve');
       div.appendChild(randomSample);
-      randomSample.addEventListener('click', () => coloredRandomBoard(inputs));
+      randomSample.onclick = function() {
+        coloredRandomBoard(inputs);
+      };
 
       //playmyself button such that user will play themself
       var playMySelf = document.createElement('button');
       playMySelf.innerHTML = 'Play';
       playMySelf.id = 'playButton';
-      playMySelf.style.width = '40px';
-      playMySelf.style.height = '20px';
+      playMySelf.style.width = '60px';
+      playMySelf.style.height = '30px';
       div.appendChild(playMySelf);
 
       var solvedTime = document.createElement('H1');
@@ -80,7 +83,6 @@ class Sudoku {
         solvee.style.display = 'none';
         playMySelf.style.display = 'none';
         solvedTime.style.display = 'none';
-        //console.log(solvedTime)
         for (i = 0; i < 81; i++) {
           inputs[i].setAttribute('style', 'color:black ');
         }
@@ -90,32 +92,33 @@ class Sudoku {
         hint.innerHTML = 'Hint';
         hint.id = 'hint';
         hint.style.marginLeft = '45%';
-        hint.style.width = '40px';
-        hint.style.height = '20px';
+        hint.style.width = '70px';
+        hint.style.height = '30px';
         div.appendChild(hint);
 
         //check button suchthat whether the problem is solved or not
         var check = document.createElement('button');
+        check.id = "checkButton"
         check.innerHTML = 'Check';
-        check.style.width = '42px';
-        check.style.height = '20px';
+        check.style.width = '70px';
+        check.style.height = '30px';
         div.appendChild(check);
 
         let timer = document.createElement('H1');
         timer.id = 'timer';
-        timer.style.marginLeft = '40%';
-        timer.style.display = 'inline'
+        timer.style.marginLeft = '45%';
+        timer.style.display = 'inline';
         timer.innerHTML = '';
         div.appendChild(timer);
 
         let hintText = document.createElement('H1');
         hintText.id = 'hintText';
-        hintText.style.display = 'inline'
-        hintText.style.marginLeft = '5%';
-        
-        hintText.innerHTML = 'Hint: ' + '5' ;
-        div.appendChild(hintText);
 
+        hintText.style.display = 'inline';
+        hintText.style.marginLeft = '4%';
+
+        hintText.innerHTML = 'Hint: ' + '5';
+        div.appendChild(hintText);
 
         let validCheckText = document.createElement('H1');
         validCheckText.id = 'validCheckText';
@@ -142,8 +145,8 @@ class Sudoku {
           if (hintValue == 1) {
             document.querySelector('#hint').disabled = true;
             hintText.style.display = 'none';
-            
           }
+          //let sudokuu = Array(9).fill(Array(9))
           let sudokuu = [...Array(9)].map(e => Array(9));
           let row;
           let col;
@@ -154,16 +157,16 @@ class Sudoku {
 
             inputs[i].setAttribute('style', 'color: black');
             sudokuu[row][col] = parseInt(inputs[i].value || 0);
-            if (sudokuu[row][col]== 0) {
+            if (sudokuu[row][col] == 0) {
               empty.push(i);
             }
           }
-
+          if()
           await solveDepth(sudokuu, false, inputs, true);
-
           let randomHint;
 
-          for (i = 1; i < 82; i++) {
+          for (i = 0; i < 81; i++) {
+
             if (i in empty) {
               randomHint = getRandomIntBetween(1, empty.length - 1);
 
@@ -176,22 +179,19 @@ class Sudoku {
 
           if (sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9] != 0) {
             if (checkValidationBoard(sudokuu)) {
-              inputs[randomnumber].setAttribute(
-                'value',
-                sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9]
-              );
-  
+              inputs[randomnumber].value =
+                sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9];
+
               inputs[randomnumber].setAttribute(
                 'style',
                 'background-color : yellow;'
               );
               hintValue = hintValue - 1;
-              hintText.innerHTML = 'Hint: ' + hintValue ;
-              console.log(hintValue);
+              hintText.innerHTML = 'Hint: ' + hintValue;
+
               empty.slice(randomHint, 1);
               return;
             }
-            
           } else {
             let check = checkValidationBoard(sudokuu);
             if (check !== true) {
@@ -204,6 +204,7 @@ class Sudoku {
         };
 
         check.onclick = async function() {
+          //let sudokuu = Array(9).fill(Array(9))
           let sudokuu = [...Array(9)].map(e => Array(9));
           let row;
           let col;
@@ -211,6 +212,7 @@ class Sudoku {
           for (i = 0; i < 81; i++) {
             row = Math.floor(i / 9);
             col = i % 9;
+            inputs[i].setAttribute('style', 'color: black');
 
             sudokuu[row][col] = parseInt(inputs[i].value || 0);
           }
@@ -225,6 +227,11 @@ class Sudoku {
               ' mili seconds';
           } else {
             validCheckText.innerHTML = 'Take time and solve your sudoku';
+            let check = checkValidationBoard(sudokuu);
+            if (check !== true) {
+              colorError(check, inputs);
+              return;
+            }
           }
         };
       };
@@ -247,11 +254,11 @@ function getRandomBoardNumbers() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
-  for (i = 0; i < 9; i++) {
+  for (row = 0; row < 9; row++) {
     var ran = getRandomIntBetween(1, 9);
-    for (j = 0; j < 9; j++) {
-      if (random[i][j] != ran) {
-        random[i][i + i] = ran;
+    for (col = 0; col < 9; col++) {
+      if (random[row][col] != ran) {
+        random[row][row + row] = ran;
       }
     }
   }
@@ -261,10 +268,9 @@ function getRandomBoardNumbers() {
 //color values in grid which are not zero
 function colorValue(board, inputs) {
   k = 0;
-  for (i = 0; i < 9; i++) {
-    for (j = 0; j < 9; j++) {
-      if (board[i][j] != 0) {
-
+  for (row = 0; row < 9; row++) {
+    for (col = 0; col < 9; col++) {
+      if (board[row][col] != 0) {
         inputs[k].setAttribute('style', 'background-color : lightgrey;');
       } else {
         inputs[k].setAttribute('style', 'color:black;');
@@ -276,14 +282,13 @@ function colorValue(board, inputs) {
 
 //display error if user insert wrong number
 function colorError(checks, inputs) {
-  checks.forEach(check => {
-    k = 0;
+  checks.forEach(function(check) {
+    let k = 0;
     for (row = 0; row < 9; row++) {
       for (col = 0; col < 9; col++) {
-        if (check.i === row && check.j == col) {
+        if (check.row === row && check.col == col) {
           inputs[k].setAttribute('style', 'color:red');
         }
-
         k++;
       }
     }
@@ -292,7 +297,8 @@ function colorError(checks, inputs) {
 
 //get current board number in sudoku matrix
 function getCurrentBoard(inputs) {
-  let sudokuu = [...Array(9)].map(e => Array(9));
+  //let sudokuu = Array(9).fill(Array(9))
+  let sudokuu=[...Array(9)].map(e => Array(9));
   for (i = 0; i < 81; i++) {
     row = Math.floor(i / 9);
     col = i % 9;
@@ -305,21 +311,20 @@ function getCurrentBoard(inputs) {
     colorError(check, inputs);
     return false;
   }
-
   return sudokuu;
 }
 
 function checkValidationBoard(sudokuu) {
   let errors = [];
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (sudokuu[i][j] === 0) {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (sudokuu[row][col] === 0) {
         continue;
       }
 
-      let check = checkCellOnBoard(sudokuu, i, j, sudokuu[i][j]);
+      let check = checkCellOnBoard(sudokuu, row, col, sudokuu[row][col]);
       if (!check) {
-        errors.push({ i, j, value: sudokuu[i][j] });
+        errors.push({ row, col, value: sudokuu[row][col] });
       }
     }
   }
@@ -339,22 +344,17 @@ async function solveSudoku(inputs) {
   }
 
   let currentBoard = getCurrentBoard(inputs);
-  //console.log(currentBoard)
 
   if (currentBoard == false) {
     return;
   }
-  console.log(currentBoard);
 
   let result = await solveDepth(currentBoard, true, inputs);
 
-  //console.log(result.millis_passed)
   if (document.querySelector('#radomSampleButton')) {
     document.querySelector('#radomSampleButton').disabled = false;
   }
-  if (document.querySelector('#playButton')) {
-    document.querySelector('#playButton').disabled = false;
-  }
+  
   document.querySelector('#solvedTimeValue').innerHTML =
     'Time to complete Sudoku: ' + result.millis_passed + ' milli seconds';
   return true;
@@ -362,13 +362,13 @@ async function solveSudoku(inputs) {
 
 function insertLayout(board, inputs) {
   var k = 0;
-  for (i = 0; i < 9; i++) {
-    for (j = 0; j < 9; j++) {
-      values = board[i][j];
+  for (row = 0; row < 9; row++) {
+    for (col = 0; col < 9; col++) {
+      values = board[row][col];
 
       if (values == 0) {
-        
-        inputs[k].setAttribute('value', values);
+        inputs[k].value = values;
+        //inputs[k].setAttribute('value', values);
       }
       inputs[k].setAttribute('value', values);
       k++;
@@ -377,6 +377,9 @@ function insertLayout(board, inputs) {
 }
 
 async function coloredRandomBoard(inputs) {
+  if (document.querySelector('#playButton')) {
+    document.querySelector('#playButton').disabled = false;
+  }
   let randomBoard = await randomBoardGenerator(inputs);
   insertLayout(randomBoard, inputs);
   colorValue(randomBoard, inputs);
@@ -400,7 +403,6 @@ async function randomBoardGenerator(inputs) {
 
     solvedRandomBoard[randomRow][randomCol] = '';
   }
-  //console.log(solvedRandomBoard)
   return solvedRandomBoard;
 }
 
