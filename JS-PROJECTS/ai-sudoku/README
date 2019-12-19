@@ -1,6 +1,7 @@
 Sudoku Solver is a 2 week JS-Project.
 
-
+Demo:
+https://asis012.github.io/leapfrog/JS-PROJECTS/ai-sudoku/
 
 Sudoku Solver 
 Here Naive Algorithm is used to generate all possible configurations of numbers from 1 to 9 to fill the empty cells. 
