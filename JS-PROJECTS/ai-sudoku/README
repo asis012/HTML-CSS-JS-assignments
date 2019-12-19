@@ -1,0 +1,18 @@
+Sudoku Solver is a 2 week JS-Project.
+
+
+
+Sudoku Solver 
+Here Naive Algorithm is used to generate all possible configurations of numbers from 1 to 9 to fill the empty cells. 
+Try every configuration one by one until the correct configuration is found.
+Backtracking is done such that if the assigned nauve vaklue returns false
+
+For UI
+HTML5
+CSS3
+
+Language Used:
+JavaScript (ES6)
+
+Reference:
+https://see.stanford.edu/materials/icspacs106b/H19-RecBacktrackExamples.pdf
