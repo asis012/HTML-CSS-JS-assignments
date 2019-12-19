@@ -5,7 +5,7 @@
 
 button {
 
-  
+  margin-top: 1%;  
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
@@ -26,7 +26,8 @@ input {
 }
 
 table {
-    margin:1em auto;
+  margin-top: 1%;
+    margin-left: 35%;
     border-collapse: collapse;
     font-family: Calibri, sans-serif;
   }
@@ -49,7 +50,8 @@ table {
     border-bottom:2px solid black ;
   }
   h1{
+    margin-top: 1%;
     font-family: sans-serif;
     font-size: 15px;
-    margin-top: 3px;
+    margin-left: 1%;
   }

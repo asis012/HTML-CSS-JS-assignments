@@ -22,7 +22,11 @@ class Sudoku {
           input.setAttribute('type', 'number');
           input.setAttribute('min', 1);
           input.setAttribute('class', 'input-box');
+
           input.addEventListener('input', function(e) {
+            // input.style.bacolor =
+
+            // input.style.backgroundColor = 'lightgrey'
             if (e.target.value > 9) {
               e.target.value = e.target.defaultValue;
             }
@@ -30,11 +34,9 @@ class Sudoku {
               e.target.value = '';
             }
           });
+
           input.max = '9';
-          input.focusOut;
-
           board[row][col] = input.value;
-
           tr.appendChild(td);
           td.appendChild(input);
           input.setAttribute('maxLength', '10');
@@ -74,8 +76,7 @@ class Sudoku {
 
       var solvedTime = document.createElement('H1');
       solvedTime.id = 'solvedTimeValue';
-
-      solvedTime.style.marginLeft = '30%';
+      solvedTime.style.marginLeft = '40%';
       div.appendChild(solvedTime);
 
       playMySelf.onclick = function() {
@@ -84,7 +85,7 @@ class Sudoku {
         playMySelf.style.display = 'none';
         solvedTime.style.display = 'none';
         for (i = 0; i < 81; i++) {
-          inputs[i].setAttribute('style', 'color:black ');
+          // inputs[i].setAttribute('style', 'color:black ');
         }
 
         //hint button such that user will get hint as required
@@ -98,11 +99,15 @@ class Sudoku {
 
         //check button suchthat whether the problem is solved or not
         var check = document.createElement('button');
-        check.id = "checkButton"
+        check.id = 'checkButton';
+
         check.innerHTML = 'Check';
         check.style.width = '70px';
         check.style.height = '30px';
         div.appendChild(check);
+        if (document.querySelector('#checkButton')) {
+          document.querySelector('#checkButton').disabled = true;
+        }
 
         let timer = document.createElement('H1');
         timer.id = 'timer';
@@ -155,18 +160,22 @@ class Sudoku {
             row = Math.floor(i / 9);
             col = i % 9;
 
-            inputs[i].setAttribute('style', 'color: black');
+            inputs[i].style.color = 'black';
             sudokuu[row][col] = parseInt(inputs[i].value || 0);
             if (sudokuu[row][col] == 0) {
               empty.push(i);
             }
           }
-          
+          if (empty.length == 1) {
+            if (document.querySelector('#checkButton')) {
+              document.querySelector('#checkButton').disabled = false;
+            }
+          }
+
           await solveDepth(sudokuu, false, inputs, true);
           let randomHint;
 
           for (i = 0; i < 81; i++) {
-
             if (i in empty) {
               randomHint = getRandomIntBetween(1, empty.length - 1);
 
@@ -176,9 +185,10 @@ class Sudoku {
 
           let randomnumber;
           randomnumber = empty[randomHint];
+          let check = checkValidationBoard(sudokuu);
 
-          if (sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9] != 0) {
-            if (checkValidationBoard(sudokuu)) {
+          if (check === true) {
+            if (sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9] != 0) {
               inputs[randomnumber].value =
                 sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9];
 
@@ -193,18 +203,14 @@ class Sudoku {
               return;
             }
           } else {
-            let check = checkValidationBoard(sudokuu);
-            if (check !== true) {
-              colorError(check, inputs);
-              return;
-            }
-            sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9];
+            colorError(check, inputs);
             return;
           }
+
+          sudokuu[Math.floor(randomnumber / 9)][randomnumber % 9];
         };
 
         check.onclick = async function() {
-          //let sudokuu = Array(9).fill(Array(9))
           let sudokuu = [...Array(9)].map(e => Array(9));
           let row;
           let col;
@@ -212,7 +218,6 @@ class Sudoku {
           for (i = 0; i < 81; i++) {
             row = Math.floor(i / 9);
             col = i % 9;
-            inputs[i].setAttribute('style', 'color: black');
 
             sudokuu[row][col] = parseInt(inputs[i].value || 0);
           }
@@ -222,9 +227,10 @@ class Sudoku {
           if (validation) {
             timer.style.display = 'none';
             validCheckText.innerHTML =
-              'Cogratulations, Solved Sudoku in' +
-              timeCounter +
-              ' mili seconds';
+              'Cogratulations, Solved Sudoku in' + timeCounter + 'seconds';
+            setTimeout(function() {
+              window.location.reload(true);
+            }, 5000);
           } else {
             validCheckText.innerHTML = 'Take time and solve your sudoku';
             let check = checkValidationBoard(sudokuu);
@@ -287,7 +293,8 @@ function colorError(checks, inputs) {
     for (row = 0; row < 9; row++) {
       for (col = 0; col < 9; col++) {
         if (check.row === row && check.col == col) {
-          inputs[k].setAttribute('style', 'color:red');
+          // inputs[k].setAttribute('style', 'color:red;');
+          inputs[k].style.color = 'red';
         }
         k++;
       }
@@ -298,14 +305,13 @@ function colorError(checks, inputs) {
 //get current board number in sudoku matrix
 function getCurrentBoard(inputs) {
   //let sudokuu = Array(9).fill(Array(9))
-  let sudokuu=[...Array(9)].map(e => Array(9));
+  let sudokuu = [...Array(9)].map(e => Array(9));
   for (i = 0; i < 81; i++) {
     row = Math.floor(i / 9);
     col = i % 9;
     sudokuu[row][col] = parseInt(inputs[i].value || 0);
   }
 
-  //
   let check = checkValidationBoard(sudokuu);
   if (check !== true) {
     colorError(check, inputs);
@@ -339,6 +345,9 @@ async function solveSudoku(inputs) {
   if (document.querySelector('#radomSampleButton')) {
     document.querySelector('#radomSampleButton').disabled = true;
   }
+  if (document.querySelector('#Solve')) {
+    document.querySelector('#Solve').disabled = true;
+  }
   if (document.querySelector('#playButton')) {
     document.querySelector('#playButton').disabled = true;
   }
@@ -354,7 +363,9 @@ async function solveSudoku(inputs) {
   if (document.querySelector('#radomSampleButton')) {
     document.querySelector('#radomSampleButton').disabled = false;
   }
-  
+  if (document.querySelector('#Solve')) {
+    document.querySelector('#Solve').disabled = false;
+  }
   document.querySelector('#solvedTimeValue').innerHTML =
     'Time to complete Sudoku: ' + result.millis_passed + ' milli seconds';
   return true;
