@@ -351,8 +351,12 @@ async function solveSudoku(inputs) {
   if (document.querySelector('#playButton')) {
     document.querySelector('#playButton').disabled = true;
   }
+  let current= getCurrentBoard(inputs);
+  colorValue(current,inputs)
+  
 
   let currentBoard = getCurrentBoard(inputs);
+  console.log(currentBoard)
 
   if (currentBoard == false) {
     return;
@@ -373,13 +377,14 @@ async function solveSudoku(inputs) {
 
 function insertLayout(board, inputs) {
   var k = 0;
+  console.log(board)
   for (row = 0; row < 9; row++) {
     for (col = 0; col < 9; col++) {
       values = board[row][col];
 
       if (values == 0) {
         inputs[k].value = values;
-        //inputs[k].setAttribute('value', values);
+        
       }
       inputs[k].setAttribute('value', values);
       k++;
