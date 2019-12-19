@@ -161,7 +161,7 @@ class Sudoku {
               empty.push(i);
             }
           }
-          if()
+          
           await solveDepth(sudokuu, false, inputs, true);
           let randomHint;
 
