@@ -18,9 +18,6 @@ This is a list of assignments that I completed during my internship at Leapfrog.
 6. **Flappy Bird Game**
    - Description: Created a Flappy Bird game using HTML, CSS, and Vanilla JavaScript, improving my game development skills.
 
-7. **Flappy Bird Game (Duplicate Entry)**
-   - Description: It seems there is a duplicate entry for the Flappy Bird game. 
-
 8. **Sudoku Game and AI Solver**
    - Description: Designed a Sudoku game and implemented an AI solver using HTML, CSS, and Vanilla JavaScript, showcasing problem-solving abilities.
 
